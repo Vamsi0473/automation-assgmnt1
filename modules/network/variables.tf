@@ -39,5 +39,4 @@ variable "location" {
   default = "canadacentral"
 }
 variable "subnet_id" {
-
 }

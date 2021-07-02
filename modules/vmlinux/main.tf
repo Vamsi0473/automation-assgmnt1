@@ -32,6 +32,10 @@ resource "azurerm_linux_virtual_machine" "group7-linuxvm1" {
     version   = var.ubuntu_os_info["los_version"]
   }
 
+   boot_diagnostics {
+     storage_account_uri = var.storage_account_blob.primary_blob_endpoint
+   }
+
 }
 resource "azurerm_network_interface" "group7-vm1_nic" {
   count               = var.nb_count
@@ -54,18 +58,9 @@ resource "azurerm_public_ip" "group7-vm1_pip" {
   location            = var.location
   allocation_method   = "Static"
 
-
 }
 
-resource "azurerm_log_analytics_workspace" "group7-linuxloganalytics" {
-  name                = var.log_analytics_workspace_linux.name
-  location            = var.location
-  resource_group_name = var.resource_group
-  sku                 = var.log_analytics_workspace_linux.log_sku
-  retention_in_days   = var.log_analytics_workspace_linux.retention_in_days
 
-  tags = local.common_tags
-}
 
 resource "azurerm_virtual_machine_extension" "group7-linuxDiagnostic"{
    count = var.nb_count

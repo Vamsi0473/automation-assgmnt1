@@ -1,5 +1,5 @@
 variable "vm_linux_name" {
-  default = "lab02s2-db1-u-vm1"
+  default = "group7-assignment1-vm"
 }
 variable "resource_group" {
   type    = string
@@ -66,14 +66,7 @@ variable "virtual_network_address_space" {
 }
 
 
-variable "log_analytics_workspace_linux" {
-  type = map(string)
-  default = {
-    law_name  = "linuxloganalytics"
-    log_sku   = "Free"
-     retention_in_days   = 30
-  }
-}
+
 variable "subnet02" {
   default = "group7subnet02"
 }
@@ -95,4 +88,7 @@ variable "network_address_space2" {
 
 variable "virtual_network_name" {
   default = "group7vnet"
+}
+variable "storage_account_blob" {
+  
 }

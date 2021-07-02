@@ -16,3 +16,14 @@ resource "azurerm_recovery_services_vault" "group7-recovery_vault" {
 
     tags = local.common_tags  
 }
+
+resource "azurerm_storage_account" "group7-storage_account" {
+  name                     = "group7-storage_account"
+  resource_group_name      = var.resource_group
+  location                 = var.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  account_kind = "BlobStorage"
+
+  tags = local.common_tags
+}

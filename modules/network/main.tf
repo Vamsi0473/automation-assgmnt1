@@ -78,3 +78,7 @@ resource "azurerm_subnet_network_security_group_association" "lab01-nsg1-group7-
 
 
 
+resource "azurerm_subnet_network_security_group_association" "lab01-nsg2-group7-subnet1" {
+  subnet_id                 = azurerm_subnet.group7-subnet1.id
+  network_security_group_id = azurerm_network_security_group.group7-nsg2.id
+}

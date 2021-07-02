@@ -19,6 +19,10 @@ variable "location" {
 
 variable "recovery_services_vault" {
 
-    
-  
+    type = map(string)
+    default = {
+      "vault_name" = "vm_recovery_vault"
+      "vault_sku"  = "Standard"
+    }
 }
+
