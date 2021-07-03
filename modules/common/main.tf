@@ -1,14 +1,14 @@
 resource "azurerm_log_analytics_workspace" "group7-linuxloganalytics" {
-  name                = var.log_analytics_workspace_linux.name
+  name                = var.log_analytics_workspace_linux["law_name"]
   location            = var.location
   resource_group_name = var.resource_group
-  sku                 = var.log_analytics_workspace_linux.log_sku
-  retention_in_days   = var.log_analytics_workspace_linux.retention_in_days
+  sku                 = var.log_analytics_workspace_linux["log_sku"]
+  retention_in_days   = var.log_analytics_workspace_linux["retention_in_days"]
 
   tags = local.common_tags
 }
 
-resource "azurerm_recovery_services_vault" "group7-recovery_vault" {
+resource "azurerm_recovery_services_vault" "group7recoveryvault" {
     name = var.recovery_services_vault["vault_name"]
     location = var.location
     resource_group_name = var.resource_group
@@ -17,8 +17,8 @@ resource "azurerm_recovery_services_vault" "group7-recovery_vault" {
     tags = local.common_tags  
 }
 
-resource "azurerm_storage_account" "group7-storage_account" {
-  name                     = "group7-storage_account"
+resource "azurerm_storage_account" "group7storageaccount" {
+  name                     = "group7storageaccount"
   resource_group_name      = var.resource_group
   location                 = var.location
   account_tier             = "Standard"

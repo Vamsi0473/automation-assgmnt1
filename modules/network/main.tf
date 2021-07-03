@@ -40,16 +40,9 @@ resource "azurerm_network_security_group" "group7-nsg1" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-
-}
-
-resource "azurerm_network_security_group" "group7-nsg2" {
-  name                = var.network_address_space2
-  location            = var.location
-  resource_group_name = var.resource_group
-  security_rule {
-    name                       = "rule1"
-    priority                   = 100
+ security_rule {
+    name                       = "rule3"
+    priority                   = 140
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
@@ -69,16 +62,10 @@ resource "azurerm_network_security_group" "group7-nsg2" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+
 }
 
 resource "azurerm_subnet_network_security_group_association" "lab01-nsg1-group7-subnet1" {
   subnet_id                 = azurerm_subnet.group7-subnet1.id
   network_security_group_id = azurerm_network_security_group.group7-nsg1.id
-}
-
-
-
-resource "azurerm_subnet_network_security_group_association" "lab01-nsg2-group7-subnet1" {
-  subnet_id                 = azurerm_subnet.group7-subnet1.id
-  network_security_group_id = azurerm_network_security_group.group7-nsg2.id
 }

@@ -1,6 +1,9 @@
 module "network" {
   source    = "./modules/network"
-  subnet_id = module.network.group7-subnet1
+ depends_on = [
+    module.rgroup
+  ]  
+subnet_id = module.network.group7-subnet1
 }
 module "rgroup"{
     source = "./modules/rgroup"
@@ -36,5 +39,5 @@ module "vmlinux" {
 # }
 module "common" {
   source = "./modules/common"
-
+  depends_on = [ module.rgroup ]
 } 

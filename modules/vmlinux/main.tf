@@ -66,11 +66,11 @@ resource "azurerm_virtual_machine_extension" "group7-linuxDiagnostic"{
    count = var.nb_count
    name  = "group7-LinuxDiagnostic"
 
-   virtual_machine_id = azurerm_linux_virtual_machine.group7-linuxvm1[*].id 
+   virtual_machine_id =element(azurerm_linux_virtual_machine.group7-linuxvm1[*].id, count.index + 1) 
    publisher = "Microsoft.Azure.Diagnostics"
    type = "LinuxDiagnostic"
    type_handler_version = var.LinuxDiagnosticVersion
    auto_upgrade_minor_version = "true"
-   depends_on = [azurerm_linux_virtual_machine.group7-linuxvm1,nullresource.linux_provisioner,]
+   depends_on = [azurerm_linux_virtual_machine.group7-linuxvm1,null_resource.linux_provisioner,]
    tags = local.common_tags
 }

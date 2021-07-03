@@ -23,7 +23,7 @@ variable "linux_avs" {
   default = "linux-avs"
 }
 variable "nb_count" {
-  default = "2"
+  default = "1"
 }
 variable "subnet01" {
   default = "group7subnet01"

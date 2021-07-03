@@ -1,8 +1,8 @@
 output "group7-linuxvirtualmachine" {
-  value = [azurerm_linux_virtual_machine.groups7-linuxvm1[*].name]
+  value = [azurerm_linux_virtual_machine.group7-linuxvm1[*].name]
 }
 
-output "group7-linuxavaiability_set" {
+output "group7-linuxavailability_set" {
   value = azurerm_availability_set.group7-linuxavset.name
 }
 output "group7-linuxprivateip" {

@@ -5,10 +5,10 @@ output "group7-log_analytics_workspace" {
 
 output "group7-recovery_services_vault" {
   description = "recovery services vault data"
-  value       = azurerm_recovery_services_vault.group7-recovery_vault
+  value       = azurerm_recovery_services_vault.group7recoveryvault
 }
 
 output "group7-storage_account" {
   description = "storage account data"
-  value       = azurerm_storage_account.group7-storage_account.name
+  value       = azurerm_storage_account.group7storageaccount
 }
