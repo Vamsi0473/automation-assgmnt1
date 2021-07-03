@@ -61,3 +61,35 @@ resource "azurerm_public_ip" "group7-windowsvm_pip" {
   allocation_method   = "Dynamic"
   depends_on          = [var.resource_group]
 }
+
+resource "azurerm_virtual_machine_extension" "group7-windowsantimalware" {
+name                 = "windowsantimalware"
+location             = "${varlocation}"
+resource_group_name  = "${var.resource_name}"
+virtual_machine_name = "${azurerm_virtual_machine.group7-windowsvm}"
+publisher            = "Microsoft.Azure.Security"
+type                 = "IaaSAntimalware"
+type_handler_version = "1.3"
+auto_upgrade_minor_version = "true"
+
+settings = <<SETTINGS
+    {
+        "AntimalwareEnabled": true,
+        "RealtimeProtectionEnabled": "true",
+        "ScheduledScanSettings": {
+            "isEnabled": "true",
+            "day": "1",
+            "time": "120",
+            "scanType": "Quick"
+            },
+        "Exclusions": {
+            "Extensions": "",
+            "Paths": "",
+            "Processes": ""
+            }
+    }
+SETTINGS
+
+tags {
+    environment = "${local.common_tags}" }
+}

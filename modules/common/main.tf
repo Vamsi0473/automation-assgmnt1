@@ -23,7 +23,7 @@ resource "azurerm_storage_account" "group7storageaccount" {
   location                 = var.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  account_kind = "BlobStorage"
+  account_kind = "StorageV2"
 
   tags = local.common_tags
 }

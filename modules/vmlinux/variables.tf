@@ -23,7 +23,7 @@ variable "linux_avs" {
   default = "linux-avs"
 }
 variable "nb_count" {
-  default = "1"
+  default = "2"
 }
 variable "subnet01" {
   default = "group7subnet01"
@@ -44,7 +44,7 @@ variable "ubuntu_os_info" {
   }
 }
 variable "LinuxDiagnosticVersion" {
-  default =  "2.0"
+  default =  "3.0"
 }
 variable "subnet_id" {
 }
@@ -91,4 +91,4 @@ variable "virtual_network_name" {
 }
 variable "storage_account_blob" {
   
-}
+

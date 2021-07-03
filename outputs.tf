@@ -42,3 +42,20 @@ output "subnetaddressprefix2" {
   description = "network address space 2"
   value       = module.network.group7-subnetaddressprefix1
 }
+output "windows_hostnames" {
+  value = module.vmwindows.group7-windows_hostnames
+}
+output "windows_public_ip_address" {
+  description = "The actual ip address allocated for the resource."
+  value       = module.vmwindows.group7-windows_public_ip_address
+
+}
+output "windows_private_ip_address" {
+  description = "The actual ip address allocated for the resource."
+  value       = module.vmwindows.group7-windows_private_ip_address
+}
+
+output "windows_availability_set" {
+  value = module.vmwindows.group7-windows_availability_set
+}
+

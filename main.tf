@@ -19,21 +19,26 @@ module "vmlinux" {
     
 }
 
-# module "vmwindows" {
+module "vmwindows" {
 
-#   source = "./modules/vmwindows"
-#   depends_on = [
-#     module.resource_group
-#   ]
-#   subnet_id = module.network.group7-subnet1
-# }
+  source = "./modules/vmwindows"
+  depends_on = [
+  module.rgroup
+  ]
+subnet_id = module.network.group7-subnet1
+ }
 # module "datadisk" {
 #      source = "./modules/datadisk"
 # }
 
-# module "loadbalancer" {
-#      source = "./modules/loadbalancer"
-# }
+ module "loadbalancer" {
+      source = "./modules/loadbalancer"
+      depends_on = [module.vmlinux]
+      vm1nicid = module.vmlinux.group7-linuxnic[0]
+      vm2nicid = module.vmlinux.group7-linuxnic[1]
+      publicip_vm1 = module.vmlinux.group7-public_ip_address[0]
+      publicip_vm2  = module.vmlinux.group7-public_ip_address[1]
+}
 # module "database" {
 #      source = "./modules/database"
 # }

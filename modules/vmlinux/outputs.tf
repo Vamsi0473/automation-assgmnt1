@@ -11,6 +11,10 @@ output "group7-linuxprivateip" {
 
 }
 
+output "group7-linuxnic" { 
+   value = [azurerm_network_interface.group7-vm1_nic[*].id]
+}
+
 output "group7-public_ip_address" {
   description = "The actual ip address allocated for the resource."
   value       = [azurerm_public_ip.group7-vm1_pip[*].ip_address]
