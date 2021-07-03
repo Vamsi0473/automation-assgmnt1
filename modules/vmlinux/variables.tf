@@ -91,4 +91,4 @@ variable "virtual_network_name" {
 }
 variable "storage_account_blob" {
   
-
+}

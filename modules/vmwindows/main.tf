@@ -64,9 +64,8 @@ resource "azurerm_public_ip" "group7-windowsvm_pip" {
 
 resource "azurerm_virtual_machine_extension" "group7-windowsantimalware" {
 name                 = "windowsantimalware"
-location             = "${varlocation}"
-resource_group_name  = "${var.resource_name}"
-virtual_machine_name = "${azurerm_virtual_machine.group7-windowsvm}"
+for_each              = var.windows_name
+virtual_machine_id   = azurerm_windows_virtual_machine.group7-windowsvm[each.key].id
 publisher            = "Microsoft.Azure.Security"
 type                 = "IaaSAntimalware"
 type_handler_version = "1.3"
@@ -90,6 +89,6 @@ settings = <<SETTINGS
     }
 SETTINGS
 
-tags {
-    environment = "${local.common_tags}" }
+tags = local.common_tags
 }
+
