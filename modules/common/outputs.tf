@@ -10,5 +10,5 @@ output "group7-recovery_services_vault" {
 
 output "group7-storage_account" {
   description = "storage account data"
-  value       = azurerm_storage_account.group7storageaccount
+  value       = azurerm_storage_account.group7storageaccount1
 }

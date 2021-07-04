@@ -61,13 +61,13 @@ resource "azurerm_public_ip" "group7-vm1_pip" {
 }
 
 data "azurerm_public_ip" "listofPIP" {
-  count               = 2
+  count               = var.nb_count
   name                = azurerm_public_ip.group7-vm1_pip[count.index].name
   resource_group_name = azurerm_linux_virtual_machine.group7-linuxvm1[count.index].resource_group_name
 }
 
 data "azurerm_network_interface" "listofNIC" {
-  count               = 2
+  count               = var.nb_count
   name                = azurerm_network_interface.group7-vm1_nic[count.index].name
   resource_group_name = azurerm_linux_virtual_machine.group7-linuxvm1[count.index].resource_group_name
 }

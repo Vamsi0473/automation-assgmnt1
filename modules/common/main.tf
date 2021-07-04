@@ -17,8 +17,8 @@ resource "azurerm_recovery_services_vault" "group7recoveryvault" {
     tags = local.common_tags  
 }
 
-resource "azurerm_storage_account" "group7storageaccount" {
-  name                     = "group7storageaccount"
+resource "azurerm_storage_account" "group7storageaccount1" {
+  name                     = "group7storageaccount1"
   resource_group_name      = var.resource_group
   location                 = var.location
   account_tier             = "Standard"

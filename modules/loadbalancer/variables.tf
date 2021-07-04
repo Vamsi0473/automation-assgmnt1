@@ -11,15 +11,20 @@ variable "location" {
   default = "canadacentral"
 }
 
-variable "vm1nicid" {
-
+variable "linux_name" { 
+  default = "group7-assignment1-vm"
 }
-variable "vm2nicid" {
 
+variable "lb_count" {
+  default = 2
 }
+
 variable "publicip_vm1" {
 
 }
 variable "publicip_vm2" {
 
 }
+
+variable "network_interface_id"{
+ }

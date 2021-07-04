@@ -25,24 +25,25 @@ module "vmwindows" {
   depends_on = [
   module.rgroup
   ]
+  storage_account_blob = module.common.group7-storage_account
 subnet_id = module.network.group7-subnet1
  }
 # module "datadisk" {
 #      source = "./modules/datadisk"
 # }
 
- module "loadbalancer" {
-      source = "./modules/loadbalancer"
-      depends_on = [module.vmlinux]
-      vm1nicid = module.vmlinux.group7-linuxnic[0]
-      vm2nicid = module.vmlinux.group7-linuxnic[1]
-      publicip_vm1 = module.vmlinux.group7-public_ip_address[1]
-      publicip_vm2 = module.vmlinux.group7-public_ip_address[0]
+# module "loadbalancer" {
+ #     source = "./modules/loadbalancer"
+  #    depends_on = [module.vmlinux]
+   #   network_interface_id  = module.vmlinux.group7-linuxnic[*].id
+    #  publicip_vm1 = module.vmlinux.group7-public_ip_address[0]
+     # publicip_vm2 = module.vmlinux.group7-public_ip_address[1]
 
-}
-# module "database" {
-#      source = "./modules/database"
-# }
+#}
+ module "database" {
+      source = "./modules/database"
+      depends_on  = [ module.rgroup ]
+ }
 module "common" {
   source = "./modules/common"
   depends_on = [ module.rgroup ]

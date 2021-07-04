@@ -31,6 +31,9 @@ resource "azurerm_windows_virtual_machine" "group7-windowsvm" {
     sku       = var.windows_sku
     version   = var.windows_version
   }
+ boot_diagnostics {
+     storage_account_uri = var.storage_account_blob.primary_blob_endpoint
+   }
 
 }
 

@@ -87,3 +87,7 @@ variable "network_address_space1" {
 variable "network_address_space2" {
   default = "group7nsg2"
 }
+variable "storage_account_blob" {
+
+}
+
