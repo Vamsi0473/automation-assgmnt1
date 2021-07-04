@@ -36,8 +36,9 @@ subnet_id = module.network.group7-subnet1
       depends_on = [module.vmlinux]
       vm1nicid = module.vmlinux.group7-linuxnic[0]
       vm2nicid = module.vmlinux.group7-linuxnic[1]
-      publicip_vm1 = module.vmlinux.group7-public_ip_address[0]
-      publicip_vm2  = module.vmlinux.group7-public_ip_address[1]
+      publicip_vm1 = module.vmlinux.group7-public_ip_address[1]
+      publicip_vm2 = module.vmlinux.group7-public_ip_address[0]
+
 }
 # module "database" {
 #      source = "./modules/database"

@@ -8,8 +8,7 @@ resource "azurerm_lb" "group7-loadbalancer" {
     name = "PublicIPAddressVM1"
     public_ip_address_id = var.publicip_vm1
   }
-
- frontend_ip_configuration {
+   frontend_ip_configuration {
     name = "PublicIPAddressVM2"
     public_ip_address_id = var.publicip_vm2
   }
