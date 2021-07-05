@@ -25,8 +25,8 @@ resource "azurerm_lb_backend_address_pool" "group7-lb-backend" {
 
 resource "azurerm_network_interface_backend_address_pool_association" "group7-networkibapavm1" {
   count  = var.lb_count
-  network_interface_id  = element(var.network_interface_id, count.index + 1).id
-  ip_configuration_name   =  element(var.network_interface_id,count.index + 1).name
+  network_interface_id  = element(var.network_interface_id, count.index).id
+  ip_configuration_name   =  element(var.network_interface_id,count.index).name
   backend_address_pool_id = azurerm_lb_backend_address_pool.group7-lb-backend.id
 }
 

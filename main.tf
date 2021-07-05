@@ -48,3 +48,9 @@ module "common" {
   source = "./modules/common"
   depends_on = [ module.rgroup ]
 } 
+
+module "datadisk" {
+  source = "./modules/datadisk"
+  depends_on = [ module.vmlinux ]
+  linuxvmid = module.vmlinux.group7-linuxvirtualmachineid
+}

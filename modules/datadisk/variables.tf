@@ -7,3 +7,14 @@ variable "location" {
   type    = string
   default = "canadacentral"
 }
+
+variable "vm_linux_name" {
+  default = "group7-assignment1-vm"
+}
+variable "disk_count" {
+  default = "2"
+}
+
+variable "linuxvmid" {
+  
+}

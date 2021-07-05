@@ -22,3 +22,7 @@ output "group7-public_ip_address" {
   description = "The actual ip address allocated for the resource."
   value       = data.azurerm_public_ip.listofPIP.*.id
 }
+
+output "group7-linuxvirtualmachineid" {
+  value = [azurerm_linux_virtual_machine.group7-linuxvm1[*].id]
+}
