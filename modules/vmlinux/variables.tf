@@ -3,7 +3,7 @@ variable "vm_linux_name" {
 }
 variable "resource_group" {
   type    = string
-  default = "group7rg"
+  default = "group7-assignment1-rg"
 }
 
 locals {

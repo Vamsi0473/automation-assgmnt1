@@ -4,7 +4,7 @@ variable "windows_avs" {
 variable "windows_name" {
   type = map(string)
   default = {
-    lab-web-w-vm1 = "Standard_B1s"
+    group7-win-vm1 = "Standard_B1s"
   }
 }
 
@@ -48,7 +48,7 @@ locals {
 }
 variable "resource_group" {
   type    = string
-  default = "group7rg"
+  default = "group7-assignment1-rg"
 }
 
 variable "location" {

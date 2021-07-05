@@ -32,14 +32,14 @@ subnet_id = module.network.group7-subnet1
 #      source = "./modules/datadisk"
 # }
 
-# module "loadbalancer" {
- #     source = "./modules/loadbalancer"
-  #    depends_on = [module.vmlinux]
-   #   network_interface_id  = module.vmlinux.group7-linuxnic[*].id
-    #  publicip_vm1 = module.vmlinux.group7-public_ip_address[0]
-     # publicip_vm2 = module.vmlinux.group7-public_ip_address[1]
+ module "loadbalancer" {
+      source = "./modules/loadbalancer"
+      depends_on = [module.vmlinux]
+      network_interface_id  = module.vmlinux.group7-linuxnic[*]
+       publicip_vm1 = module.vmlinux.group7-public_ip_address[0]
+      publicip_vm2 = module.vmlinux.group7-public_ip_address[1]
 
-#}
+}
  module "database" {
       source = "./modules/database"
       depends_on  = [ module.rgroup ]
