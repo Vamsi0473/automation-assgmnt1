@@ -24,5 +24,5 @@ output "group7-public_ip_address" {
 }
 
 output "group7-linuxvirtualmachineid" {
-  value = [azurerm_linux_virtual_machine.group7-linuxvm1[*].id]
+  value = azurerm_linux_virtual_machine.group7-linuxvm1[*]
 }

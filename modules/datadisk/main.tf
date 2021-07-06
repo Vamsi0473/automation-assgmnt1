@@ -10,8 +10,12 @@ resource "azurerm_managed_disk" "group7-disk" {
 
 resource "azurerm_virtual_machine_data_disk_attachment" "group7-disk-atchmnt" {
   count                = var.disk_count
-  managed_disk_id    = element(azurerm_managed_disk.group7-disk[*].id, count.index)
-  virtual_machine_id = element(var.linuxvmid,count.index)
+  managed_disk_id    = element(azurerm_managed_disk.group7-disk[*].id, count.index+1)
+virtual_machine_id = element(var.linuxvmid,count.index+1)
   lun                = "10"
   caching            = "ReadWrite"
 }
+
+#resource "azure_managed_disk" "group7-diskwin" { 
+  # count = var.countwin
+  # name  = "

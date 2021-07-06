@@ -72,15 +72,5 @@ data "azurerm_network_interface" "listofNIC" {
   resource_group_name = azurerm_linux_virtual_machine.group7-linuxvm1[count.index].resource_group_name
 }
 
-#resource "azurerm_virtual_machine_extension" "group7-linuxDiagnostic"{
-   #count = var.nb_count
-   #name  = "group7-LinuxDiagnostic"
 
-   #virtual_machine_id =element(azurerm_linux_virtual_machine.group7-linuxvm1[*].id, count.index + 1) 
-   #publisher = "Microsoft.Azure.Diagnostics"
-   #type = "LinuxDiagnostic"
-   #type_handler_version = var.LinuxDiagnosticVersion
-   #auto_upgrade_minor_version = "true"
-  # depends_on = [azurerm_linux_virtual_machine.group7-linuxvm1,null_resource.linux_provisioner,]
- #  tags = local.common_tags
-#}
+ 
