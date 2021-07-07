@@ -25,25 +25,22 @@ resource "azurerm_lb_backend_address_pool" "group7-lb-backend" {
 
 resource "azurerm_network_interface_backend_address_pool_association" "group7-networkibapavm1" {
   count  = var.lb_count
-  network_interface_id  = element(var.network_interface_id, count.index).id
-  ip_configuration_name   =  element(var.network_interface_id,count.index).name
+  network_interface_id  = element(var.network_interface_id[*].id,count.index)
+  ip_configuration_name   =  element(var.network_interface_id[*].ip_configuration[0].name,count.index)
   backend_address_pool_id = azurerm_lb_backend_address_pool.group7-lb-backend.id
 }
 
-#resource "azurerm_network_interface_backend_address_pool_association" "group7-networkIibapavm2" {
-  #network_interface_id    = "group7-assignment1-vm-nic-2"
-  #ip_configuration_name   = "group7-assignment1-vm-nic-2"
- # backend_address_pool_id = azurerm_lb_backend_address_pool.group7-lb-backend.id
-#}
 
 resource "azurerm_lb_rule" "group7-lbrule" {
   resource_group_name            = var.resource_group
   loadbalancer_id                = azurerm_lb.group7-loadbalancer.id
   name                           = "LBRule"
   protocol                       = "Tcp"
-  frontend_port                  = 80
-  backend_port                   = 80
+  frontend_port                  = 22
+  backend_port                   = 22
   frontend_ip_configuration_name = "PublicIPAddressVM1"
+   backend_address_pool_id = azurerm_lb_backend_address_pool.group7-lb-backend.id
+   probe_id = azurerm_lb_probe.group7-lbprobe.id
 
 }
 resource "azurerm_lb_probe" "group7-lbprobe" {

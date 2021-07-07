@@ -14,3 +14,7 @@ output "group7-windows_private_ip_address" {
 output "group7-windows_availability_set" {
   value = azurerm_availability_set.group7-windows_av_set.name
 }
+
+output "group7-windowsvmid"{
+ value = values(azurerm_windows_virtual_machine.group7-windowsvm)[*]
+}

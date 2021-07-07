@@ -12,8 +12,9 @@ resource "azurerm_linux_virtual_machine" "group7-linuxvm1" {
   size                  = var.vm_size
   admin_username        = var.username
   computer_name         = "${var.vm_linux_name}${format("%1d", count.index + 1)}"
-  network_interface_ids = [element(azurerm_network_interface.group7-vm1_nic[*].id, count.index + 1)]
-  depends_on            = [azurerm_availability_set.group7-linuxavset]
+  network_interface_ids = [element(azurerm_network_interface.group7-vm1_nic[*].id, count.index)]
+ availability_set_id   = azurerm_availability_set.group7-linuxavset.id
+ depends_on            = [azurerm_availability_set.group7-linuxavset]
   admin_ssh_key {
     username   = var.username
     public_key = file(var.public_key)
@@ -47,7 +48,7 @@ resource "azurerm_network_interface" "group7-vm1_nic" {
     name                          = "${var.vm_linux_name}-nic-${format("%1d", count.index + 1)}"
     subnet_id                     = var.subnet_id.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = element(azurerm_public_ip.group7-vm1_pip[*].id, count.index + 1)
+    public_ip_address_id          = element(azurerm_public_ip.group7-vm1_pip[*].id, count.index)
   }
 }
 resource "azurerm_public_ip" "group7-vm1_pip" {

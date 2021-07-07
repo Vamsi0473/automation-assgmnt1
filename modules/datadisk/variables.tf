@@ -18,3 +18,12 @@ variable "disk_count" {
 variable "linuxvmid" {
   
 }
+
+variable "windows_name" {
+ type = map(string)
+  default = {
+   name =  "group7-win-vm1"
+ }
+}
+variable "windowsvm" {
+  }
