@@ -59,3 +59,30 @@ output "windows_availability_set" {
   value = module.vmwindows.group7-windows_availability_set
 }
 
+output "group7-log_analytics_workspace" {
+  description = "log analytics data"
+  value       = module.common.group7-log_analytics_workspace
+}
+
+output "group7-recovery_services_vault" {
+  description = "recovery services vault data"
+  value       = module.common.group7-recovery_services_vault
+}
+
+output "group7-storage_account" {
+  description = "storage account data"
+sensitive = true
+value       = module.common.group7-storage_account
+}
+output "resource_group" {
+  value = module.rgroup.resource_groupname
+}
+
+output "group7-loadbalancer" {
+ value = module.loadbalancer.loadbalancer_name
+}
+
+output "group7-dbname" {
+ value = module.database.group7-postgresdb
+
+}
