@@ -1,0 +1,25 @@
+[linux]
+#ansible-c-vm16248
+#ansible-c-vm26248
+group7-assignment2-vm1
+group7-assignment2-vm2
+
+
+[windows]
+group7-win-vm1-pip
+
+[windows:vars]
+#ansible_python_interpreter=/usr/bin/python3
+
+ansible_user=winadm
+ansible_password="Winadm123"
+ansible_connection=winrm
+ansible_winrm_transport=ntlm
+ansible_winrm_scheme= http
+ansible_port=5985
+ansible_winrm_server_cert_validation=ignore
+
+
+[os:children]
+linux
+windows
