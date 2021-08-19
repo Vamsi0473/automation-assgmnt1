@@ -1,6 +1,6 @@
 variable "resource_group" {
   type    = string
-  default = "group7-assignment1-rg"
+  default = "group7-assignment2-rg"
 }
 
 variable "location" {
@@ -9,7 +9,7 @@ variable "location" {
 }
 
 variable "vm_linux_name" {
-  default = "group7-assignment1-vm"
+  default = "group7-assignment2-vm"
 }
 variable "disk_count" {
   default = "2"

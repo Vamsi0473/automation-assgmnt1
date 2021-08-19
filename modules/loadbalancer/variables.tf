@@ -3,7 +3,7 @@ variable "load_balancer" {
 }
 variable "resource_group" {
   type    = string
-  default = "group7-assignment1-rg"
+  default = "group7-assignment2-rg"
 }
 
 variable "location" {
@@ -12,7 +12,7 @@ variable "location" {
 }
 
 variable "linux_name" { 
-  default = "group7-assignment1-vm"
+  default = "group7-assignment2-vm"
 }
 
 variable "lb_count" {

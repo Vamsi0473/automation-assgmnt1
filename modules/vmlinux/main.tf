@@ -54,10 +54,11 @@ resource "azurerm_network_interface" "group7-vm1_nic" {
 resource "azurerm_public_ip" "group7-vm1_pip" {
   count               = var.nb_count
   tags                = local.common_tags
+  domain_name_label = "${var.vm_linux_name}${format("%1d", count.index + 1)}"
   name                = "${var.vm_linux_name}-pip-${format("%1d", count.index + 1)}"
   resource_group_name = var.resource_group
   location            = var.location
-  allocation_method   = "Static"
+  allocation_method   = "Dynamic"
 
 }
 

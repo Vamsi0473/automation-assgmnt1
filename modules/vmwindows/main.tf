@@ -58,6 +58,7 @@ resource "azurerm_network_interface" "group7-windows_nic" {
 resource "azurerm_public_ip" "group7-windowsvm_pip" {
   for_each            = var.windows_name
   tags                = local.common_tags
+  domain_name_label = "${each.key}-pip"
   name                = "${each.key}-pip"
   resource_group_name = var.resource_group
   location            = var.location
